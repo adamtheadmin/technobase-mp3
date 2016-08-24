@@ -1,0 +1,26 @@
+{
+  "name": "technobase",
+  "version": "1.0.0",
+  "description": "This is a node.js service to stream MP3 Recordings from Technobase.fm and Trancebase.fm. It checks the tracklist to get the proper ID3 Tags to add them to the file properly.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adam Fowler",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "md5": "^2.1.0",
+    "node-id3": "0.0.4",
+    "request": "^2.74.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lilglower/technobase-mp3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lilglower/technobase-mp3/issues"
+  },
+  "homepage": "https://github.com/lilglower/technobase-mp3#readme"
+}
