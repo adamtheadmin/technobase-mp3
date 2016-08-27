@@ -33,10 +33,12 @@ function getList(then){
 				$('.news2 table').each(function(){
 					var line = $('th', this).text(),
 						parts = line.split(' - ');
+					var nextDiv = $(this).next('div');
 					list.push({
 						title : parts[1],
 						artist : parts[0],
-						state : thisState
+						state : thisState,
+						img : $('img', nextDiv).attr('src')
 					});
 				})
 				songs = list;

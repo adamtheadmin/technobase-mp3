@@ -16,18 +16,23 @@ tracklistStream.on('song', (data) => {
 	state = data.state;
 
 	var file = './recordings/' + data.title + ' - ' + data.artist + ' .mp3',
-	checkInterval = setInterval(() => {
-		if(data.state != state){
-			masterStream.removeListener('data', handler);
-			clearInterval(checkInterval);
-			writeStream.end();
-			nodeID3.write(data, file);
+		imageFile = './tmp/' + data.state + '.png',
+		checkInterval = setInterval(() => {
+			if(data.state != state){
+				masterStream.removeListener('data', handler);
+				clearInterval(checkInterval);
+				writeStream.end();
+				nodeID3.write(data, file);
+			}
+		}, 1000),
+		writeStream = fs.createWriteStream(file),
+		handler = function(bit){
+			writeStream.write(bit);
 		}
-	}, 1000),
-	writeStream = fs.createWriteStream(file),
-	handler = function(bit){
-		writeStream.write(bit);
-	}
 
+	if(data.img)
+		request(data.img).pipe(fs.createWriteStream(imageFile)).on('end', () => {
+			data.image = imageFile;
+		});
 	masterStream.on('data', handler)
 })
