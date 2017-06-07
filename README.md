@@ -3,7 +3,7 @@
 This is a node.js service to stream MP3 Recordings from Technobase.fm and Trancebase.fm. It checks the tracklist to get the proper ID3 Tags to add them to the file properly. 
 
 ### Switching Stations
-To switch stations, simple change the references from technobase to trancebase in both index.js and tracklist.js
+To switch stations, simply change the references from technobase to trancebase in both index.js and tracklist.js
 
 ### To Run
 Simply do an `npm install` and start by using `node index`
